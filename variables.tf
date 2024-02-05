@@ -18,5 +18,5 @@ variable "fleet_member_name" {
 
 variable "aks_cluster_resource_id" {
   description = "The ARM resource ID of the AKS cluster."
-  type        = list(string)
+  type        = string
 }
