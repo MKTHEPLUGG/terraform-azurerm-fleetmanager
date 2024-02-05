@@ -1,7 +1,7 @@
-#variable "resource_group" {
-#  description = "The resource group"
-#  type = string
-#}
+variable "aks_resource_group_name" {
+  description = "The resource group of the aks cluster"
+  type = string
+}
 
 variable "environment" {
   type = string
