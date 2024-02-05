@@ -30,3 +30,36 @@ resource "azapi_resource" "fleet_member" {
     }
   })
 }
+
+# Adding update strategy
+resource "azurerm_kubernetes_fleet_update_strategy" "example_update_strategy" {
+  name                      = "Default Update Strategy"
+  kubernetes_fleet_manager_id = azurerm_kubernetes_fleet_manager.fleet_manager.id
+
+  stage {
+    name = "integration-stage"
+
+    after_stage_wait_in_seconds = 60
+
+    group {
+      name = "integration-group"
+    }
+  }
+
+  stage {
+    name = "acceptance-stage"
+
+    after_stage_wait_in_seconds = 120
+
+    group {
+      name = "acceptance-group"
+    }
+  }
+
+  timeouts {
+    create = "30m"
+    read   = "5m"
+    update = "30m"
+    delete = "30m"
+  }
+}
