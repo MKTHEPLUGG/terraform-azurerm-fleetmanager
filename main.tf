@@ -1,3 +1,5 @@
+data "azurerm_client_config" "current" {}
+
 resource "azurerm_resource_group" "fleet_manager_rg" {
   name     = var.resource_group.name
   location = "West Europe"
@@ -18,7 +20,7 @@ resource "azurerm_kubernetes_fleet_manager" "fleet_manager" {
 resource "azapi_resource" "fleet_member" {
   type      = "Microsoft.ContainerService/fleets/members@2022-09-02-preview"
   name      = var.fleet_member_name
-  parent_id = format("/subscriptions/%s/resourceGroups/%s/providers/Microsoft.ContainerService/fleets/%s", data.azurerm_client_config.current.subscription_id, var.resource_group_name, local.fleet_manager_name)
+  parent_id = format("/subscriptions/%s/resourceGroups/%s/providers/Microsoft.ContainerService/fleets/%s", data.azurerm_client_config.current.subscription_id, var.resource_group.name, local.fleet_manager_name)
 
   body = jsonencode({
     properties = {
