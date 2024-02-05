@@ -11,10 +11,12 @@ resource "azurerm_kubernetes_fleet_manager" "fleet_manager" {
   resource_group_name = azurerm_resource_group.fleet_manager_rg.name
 
   # Configuration properties for Fleet Manager
+  hub_profile {
+    dns_prefix = "aks-dev-we-mvh" # Ensure this DNS prefix is unique within the Azure region
+  }
 }
 
 # Logic to associate AKS clusters with Fleet Manager
-# This will depend on the specific Azure resources and properties needed for integration
 # doesn't exist yet? using preview via azapi
 
 resource "azapi_resource" "fleet_member" {
