@@ -1,7 +1,7 @@
-variable "resource_group" {
-  description = "The resource group"
-  type = string
-}
+#variable "resource_group" {
+#  description = "The resource group"
+#  type = string
+#}
 
 variable "environment" {
   type = string
