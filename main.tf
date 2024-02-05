@@ -63,3 +63,5 @@ resource "azurerm_kubernetes_fleet_update_strategy" "example_update_strategy" {
     delete = "30m"
   }
 }
+
+## we can't yet add members to upgrade groups via API, Could create a custom script but cba
