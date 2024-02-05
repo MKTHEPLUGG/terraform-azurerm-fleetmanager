@@ -33,7 +33,7 @@ resource "azapi_resource" "fleet_member" {
 
 # Adding update strategy
 resource "azurerm_kubernetes_fleet_update_strategy" "example_update_strategy" {
-  name                      = "Default Update Strategy"
+  name                      = "default-update-strategy"
   kubernetes_fleet_manager_id = azurerm_kubernetes_fleet_manager.fleet_manager.id
 
   stage {
