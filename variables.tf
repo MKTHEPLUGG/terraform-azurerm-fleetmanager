@@ -1,11 +1,6 @@
 variable "resource_group" {
   description = "The resource group"
-  type = object({
-    id       = string
-    name     = string
-    location = string
-    tags     = map(string)
-  })
+  type = string
 }
 
 variable "environment" {
