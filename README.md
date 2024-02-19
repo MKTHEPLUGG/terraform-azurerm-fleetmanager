@@ -28,20 +28,17 @@ module "fleet_manager" {
   version   = ">=0.0.1,<1.0.0"
 
   fleet_member_name       = module.aks.cluster_name
+  fleet_member_name       = "int/acc/prd"
   aks_cluster_resource_id = module.aks.id
-  environment             = "development"
-  project_name            = "fleet-manager"
+
 }
 ```
-
-Replace the `module.aks.cluster_name` and `module.aks.id` placeholders with your specific AKS cluster name and resource ID, respectively.
 
 ### Parameters
 
 - **fleet_member_name:** The name of the AKS cluster to be managed by the Fleet Manager.
+- **fleet_member_group:** The name of the environment (e.g., int(egration), acc(eptance), pr(o)d(uction).
 - **aks_cluster_resource_id:** The full resource ID of the AKS cluster.
-- **environment:** The deployment environment (e.g., development, staging, production).
-- **project_name:** The name of the project utilizing the Fleet Manager.
 
 ## Additional Information
 

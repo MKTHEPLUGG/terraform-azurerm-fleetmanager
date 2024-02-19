@@ -19,6 +19,11 @@ variable "fleet_member_name" {
 variable "fleet_member_group" {
   description = "The update group the fleet member should be a member of."
   type        = string
+
+  validation {
+    condition     = contains(["int", "acc", "prd"], var.fleet_member_group)
+    error_message = "The fleet member group must be one of: int, acc, prd."
+  }
 }
 
 variable "aks_cluster_resource_id" {
