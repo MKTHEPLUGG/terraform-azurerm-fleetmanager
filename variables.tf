@@ -3,16 +3,21 @@
 #  type = string
 #}
 
-variable "environment" {
-  type = string
-}
-
-variable "project_name" {
-  type = string
-}
+#variable "environment" {
+#  type = string
+#}
+#
+#variable "project_name" {
+#  type = string
+#}
 
 variable "fleet_member_name" {
   description = "The name for the fleet member."
+  type        = string
+}
+
+variable "fleet_member_group" {
+  description = "The update group the fleet member should be a member of."
   type        = string
 }
 
